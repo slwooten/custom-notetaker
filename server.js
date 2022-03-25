@@ -9,10 +9,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
+});
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
-})
+});
+
+
 app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`) // makes the apps work // listens for any requests at the following path
+  console.log(`Example app listening at http://localhost:${PORT}`) // makes the app work // listens for any requests at the following path
 );
